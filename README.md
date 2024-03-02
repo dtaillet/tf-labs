@@ -1,2 +1,2 @@
 # tf-labs
-# create sqs
+# create sqs and lambda
