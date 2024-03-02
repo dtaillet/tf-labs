@@ -24,11 +24,17 @@ resource "aws_iam_policy" "iam_policy_for_lambda" {
     "Statement" : [
       {
         "Action" : [
-          "logs:CreateLogGroup",
+          "logs:CreateLogGroup"
+        ],
+        "Resource" : "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.account_id}:*",
+        "Effect" : "Allow"
+      },
+      {
+        "Action" : [
           "logs:CreateLogStream",
           "logs:PutLogEvents"
         ],
-        "Resource" : "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.account_id}:*",
+        "Resource" : "arn:aws:logs:${var.aws_region}:${data.aws_caller_identity.current.account_id}:log-group:/aws/lambda/${local.lambda_hw_fname}:*",
         "Effect" : "Allow"
       }
     ]
