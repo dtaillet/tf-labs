@@ -1,2 +1,2 @@
 # tf-labs
-# create sqs and lambda
+create python 'hello world' lambda and iam role
